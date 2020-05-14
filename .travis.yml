@@ -1,0 +1,14 @@
+language: generic 
+
+sudo: required
+
+services: 
+    - docker
+
+before_install:
+    - docker build -t ted/docker-react -f Dockerfiile.dev . 
+
+script:
+    - docker run -e CI=true ted/docker-react npm run test
+
+
